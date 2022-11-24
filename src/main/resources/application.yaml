@@ -1,0 +1,15 @@
+server:
+  port: 1111
+
+#set graphiql and graphql endpoints
+graphiql:
+  enabled: true
+  mapping: graphiql
+  endpoint:
+    graphql: /graphql/v1
+
+#for default graphql controller
+graphql:
+  spqr:
+    http:
+      endpoint: graphql/v1
