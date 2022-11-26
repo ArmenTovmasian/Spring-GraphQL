@@ -13,4 +13,5 @@ public class ProductTemplate {
     private String name;
     private UUID eligibilityConditionId;
     private List<ProductOffering> productOfferings;
+    private Integer balance;
 }
