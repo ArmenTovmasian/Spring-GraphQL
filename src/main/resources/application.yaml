@@ -9,7 +9,7 @@ graphiql:
     graphql: /graphql/v1
 
 #for default graphql controller
-graphql:
-  spqr:
-    http:
-      endpoint: graphql/v1
+#graphql:
+#  spqr:
+#    http:
+#      endpoint: /graphql/v1
