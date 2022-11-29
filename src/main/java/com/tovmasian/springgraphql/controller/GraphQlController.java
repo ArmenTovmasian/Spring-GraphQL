@@ -1,5 +1,6 @@
 package com.tovmasian.springgraphql.controller;
 
+import com.tovmasian.springgraphql.CustomContext;
 import com.tovmasian.springgraphql.dataLoader.DataLoaderRegistryFactoryImpl;
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
@@ -32,6 +33,7 @@ public class GraphQlController {
     @PostMapping
     public ExecutionResult graphQl(@RequestBody GraphQLRequest graphQLRequest) {
         ExecutionInput executionInput = ExecutionInput.newExecutionInput()
+                .context(new CustomContext())
                 .query(graphQLRequest.getQuery())
                 .variables(graphQLRequest.getVariables())
                 .operationName(graphQLRequest.getOperationName())

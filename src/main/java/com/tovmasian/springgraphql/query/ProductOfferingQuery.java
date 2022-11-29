@@ -1,5 +1,6 @@
 package com.tovmasian.springgraphql.query;
 
+import com.tovmasian.springgraphql.CustomContext;
 import com.tovmasian.springgraphql.dto.ProductOffering;
 import com.tovmasian.springgraphql.dto.ProductTemplate;
 import io.leangen.graphql.annotations.*;
@@ -31,10 +32,11 @@ public class ProductOfferingQuery {
     @GraphQLQuery(name = "productOfferings")
     public List<ProductOffering> productOfferingsToTemplate(
             @GraphQLContext ProductTemplate productTemplate,
-            @GraphQLRootContext graphql.GraphQLContext rootContext,
+            @GraphQLRootContext CustomContext rootContext,
             @GraphQLEnvironment ResolutionEnvironment environment
     ) {
-        log.info("randomArgument's value from rootContext - "+rootContext.get("randomArgument"));
+        log.info("randomArgument's value from rootContext - "+
+                rootContext.getArguments().get("randomArgument").toString());
         return Arrays.asList(
                 generateProductOfferingByProductTemplateId(productTemplate.getId()),
                 generateProductOfferingByProductTemplateId(productTemplate.getId())

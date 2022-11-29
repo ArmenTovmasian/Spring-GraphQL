@@ -1,5 +1,6 @@
 package com.tovmasian.springgraphql.query;
 
+import com.tovmasian.springgraphql.CustomContext;
 import com.tovmasian.springgraphql.dto.ProductTemplate;
 import io.leangen.graphql.annotations.*;
 import io.leangen.graphql.execution.ResolutionEnvironment;
@@ -23,9 +24,9 @@ public class ProductTemplateQuery {
     @GraphQLQuery
     public List<ProductTemplate> getProductTemplates(
             @GraphQLArgument(name = "randomArgument") String randomArgument,
-            @GraphQLRootContext graphql.GraphQLContext rootContext,
+            @GraphQLRootContext CustomContext rootContext,
             @GraphQLEnvironment ResolutionEnvironment environment) {
-        rootContext.put("randomArgument", randomArgument);
+        rootContext.getArguments().put("randomArgument", randomArgument);
         return Arrays.asList(generateProductTemplate(), generateProductTemplate());
     }
 
